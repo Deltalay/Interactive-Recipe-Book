@@ -45,11 +45,11 @@ export function RecipeProvider({ children }) {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
-    const fetchRecipes = useCallback(async () => {
+    const fetchRecipes = useCallback(async (id) => {
         try {
             setLoading(true)
             setError(null)
-            const data = await getRecipe()
+            const data = await getRecipe(id)
             const list = extractRecipeList(data)
             setApiRecipes(list.map(normalizeRecipe))
         } catch (err) {
@@ -192,6 +192,7 @@ export function RecipeProvider({ children }) {
 
         // recipe actions
         addRecipe,
+        getRecipes: fetchRecipes,
         deleteRecipe,
         refreshRecipes: fetchRecipes,
         toggleFavorite,

@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 import { useParams } from "react-router";
-import { useRecipes } from "@/context/RecipeContext";
+import { useRecipes } from '@/context/RecipeContext';
+import { getRecipe } from '@/api/recipe';
 import { useNavigate } from "react-router";
 import NotFound from "./NotFound.jsx";
 import { useAuth } from "../context/AuthContext.jsx";
